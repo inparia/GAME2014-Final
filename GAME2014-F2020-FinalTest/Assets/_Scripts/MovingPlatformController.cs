@@ -16,6 +16,8 @@ public class MovingPlatformController : MonoBehaviour
     private Vector3 distance;
 
     public ShrinkingPlatform shrink;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,9 @@ public class MovingPlatformController : MonoBehaviour
         platformTimer = 0.1f;
         platformTimer = 0;
         isActive = false;
-        distance = end.position - start.position;
+        if ((start != null && end != null))
+            distance = end.position - start.position;
+        
     }
 
     // Update is called once per frame
@@ -33,29 +37,29 @@ public class MovingPlatformController : MonoBehaviour
         if (isActive)
         {
             platformTimer += Time.deltaTime;
-            _Move();
+                _Move();
 
         }
         else
         {
-            if (Vector3.Distance(player.transform.position, start.position) <
-                Vector3.Distance(player.transform.position, end.position))
-            {
-                if (!(Vector3.Distance(transform.position, start.position) < threshold))
+                if (Vector3.Distance(player.transform.position, start.position) <
+                    Vector3.Distance(player.transform.position, end.position))
                 {
-                    platformTimer += Time.deltaTime;
-                    _Move();
+                    if (!(Vector3.Distance(transform.position, start.position) < threshold))
+                    {
+                        platformTimer += Time.deltaTime;
+                        _Move();
+                    }
                 }
-            }
-            else
-            {
-                if(!(Vector3.Distance(transform.position, end.position) < threshold))
+                else
                 {
-                    platformTimer += Time.deltaTime;
-                    _Move();
+                    if (!(Vector3.Distance(transform.position, end.position) < threshold))
+                    {
+                        platformTimer += Time.deltaTime;
+                        _Move();
+                    }
                 }
-            }
-
+            
         }
     }
 

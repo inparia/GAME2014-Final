@@ -282,20 +282,12 @@ public class PlayerBehaviour : MonoBehaviour
         {
             TakeDamage(10);
         }
-        if (other.gameObject.CompareTag("ShrinkingPlatform"))
-        {
-            other.gameObject.GetComponent<ShrinkingPlatform>().willShrink = true;
-        }
 
     }
 
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("ShrinkingPlatform"))
-        {
-            other.gameObject.GetComponent<ShrinkingPlatform>().willShrink = false;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

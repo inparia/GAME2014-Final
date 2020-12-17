@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,17 +8,19 @@ public class ShrinkingPlatform : MonoBehaviour
 {
 
     public bool willShrink;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
-        willShrink = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         // && gameObject.GetComponentInParent<MovingPlatformController>().isActive
-        if (willShrink)
+        if (willShrink && gameObject.GetComponentInParent<MovingPlatformController>().isActive)
         {
             if (gameObject.transform.localScale.x >= 0.0f)
             {
@@ -30,6 +34,10 @@ public class ShrinkingPlatform : MonoBehaviour
             {
                 gameObject.transform.localScale += new Vector3(0.1f * Time.deltaTime, 0.1f * Time.deltaTime, 0);
             }
+
         }
+
+        
     }
+
 }
