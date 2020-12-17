@@ -268,14 +268,6 @@ public class PlayerBehaviour : MonoBehaviour
             other.gameObject.SetActive(false);
             HealDamage(10);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            TakeDamage(10);
-        }
 
         if (other.gameObject.CompareTag("Moving Platform"))
         {
@@ -284,12 +276,35 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(10);
+        }
+        if (other.gameObject.CompareTag("ShrinkingPlatform"))
+        {
+            other.gameObject.GetComponent<ShrinkingPlatform>().willShrink = true;
+        }
+
+    }
+
+
     private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("ShrinkingPlatform"))
+        {
+            other.gameObject.GetComponent<ShrinkingPlatform>().willShrink = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Moving Platform"))
         {
             other.gameObject.GetComponent<MovingPlatformController>().isActive = false;
             transform.SetParent(parent);
+            
         }
     }
 

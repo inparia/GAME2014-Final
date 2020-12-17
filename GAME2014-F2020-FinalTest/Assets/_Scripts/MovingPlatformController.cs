@@ -15,11 +15,11 @@ public class MovingPlatformController : MonoBehaviour
 
     private Vector3 distance;
 
+    public ShrinkingPlatform shrink;
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerBehaviour>();
-
         platformTimer = 0.1f;
         platformTimer = 0;
         isActive = false;
@@ -29,10 +29,12 @@ public class MovingPlatformController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isActive)
         {
             platformTimer += Time.deltaTime;
             _Move();
+
         }
         else
         {
@@ -53,6 +55,7 @@ public class MovingPlatformController : MonoBehaviour
                     _Move();
                 }
             }
+
         }
     }
 
