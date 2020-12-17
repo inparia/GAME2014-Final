@@ -3279,7 +3279,7 @@ GameObject:
   - component: {fileID: 423389351}
   - component: {fileID: 423389350}
   m_Layer: 8
-  m_Name: FloatingPlatform (6)
+  m_Name: FloatingPlatform1
   m_TagString: Moving Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
