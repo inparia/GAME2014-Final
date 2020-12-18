@@ -13,8 +13,10 @@ using UnityEngine;
 public class ShrinkingPlatform : MonoBehaviour
 {
     //Checkers for if platform is going to shrink or not.
+    [Header("Shrink Option")]
     public bool willShrink;
 
+    [Header("Audios for Shrinking and Expanding")]
     public AudioSource[] sounds;
 
     private bool isShrinking, isExpanding;

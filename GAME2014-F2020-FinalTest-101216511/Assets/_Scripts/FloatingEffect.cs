@@ -15,9 +15,12 @@ public class FloatingEffect : MonoBehaviour
     // Start is called before the first frame update
 
     // Saves the original position.
+
+    [Header("Original Platform Position")]
     float originalY;
 
     //Sets its floating strength. It can also be set in editor.
+    [Header("Strength of floating")]
     public float floatStrength = 0.3f;
     void Start()
     {
