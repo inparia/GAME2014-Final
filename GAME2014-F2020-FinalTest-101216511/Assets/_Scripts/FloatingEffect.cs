@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * FloatingEffect.cs
+ * Joon Young Sun
+ * 101216511
+ * Last Modified : 2020-12-16
+ * Description : Adds floating effect to the platform.
+ * **/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

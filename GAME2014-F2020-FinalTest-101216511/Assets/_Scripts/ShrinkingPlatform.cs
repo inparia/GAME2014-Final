@@ -1,4 +1,10 @@
-﻿
+﻿/**
+ * ShrinkingPlatform.cs
+ * Joon Young Sun
+ * 101216511
+ * Last Modified : 2020-12-16
+ * Description : Shrinks the platform and plays appropriate sound.
+ * **/
 using System;
 using System.Collections;
 using System.Collections.Generic;
